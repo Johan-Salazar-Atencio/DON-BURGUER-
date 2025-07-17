@@ -1,0 +1,322 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #f4c430;
+  cursor: pointer;
+}
+body { font-family:'Segoe UI',sans-serif; background:#111; color:#fff; }
+a { color: inherit; text-decoration:none; } /* Asegura que los enlaces no tengan subrayado por defecto */
+
+/* Modificación: Aplicar estilos .btn a tanto <button> como <a> */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none; /* Asegura que los enlaces con clase .btn no tengan subrayado */
+  display: inline-block; /* Para que los enlaces se comporten como botones en línea */
+  text-align: center; /* Centra el texto dentro del botón/enlace */
+}
+
+/* Modificación: Aplicar estilos .btn.primary a tanto <button> como <a> */
+.btn.primary { background:#d23400; color:#fff; padding:12px 24px; }
+button.btn.primary:hover, /* Mantiene la regla para el botón */
+a.btn.primary:hover { /* Añadido para el enlace */
+  background:#a82800;
+}
+
+/* Modificación: Aplicar estilos .btn.secondary a tanto <button> como <a> */
+.btn.secondary { background:#f4c430; color:#000; padding:8px 20px; }
+button.btn.secondary:hover, /* Mantiene la regla para el botón */
+a.btn.secondary:hover { /* Añadido para el enlace */
+  background:#d4b300;
+}
+
+header { display:flex; justify-content:space-between; align-items:center; padding:20px; background:#000; position:sticky; top:0; z-index:1000; }
+.logo { font-size:1.8rem; color:#f4c430; }
+.logoheader{width: 90px ;}
+nav ul { display:flex; gap:20px; }
+nav ul li{list-style-type: none;}
+nav a:hover { color:#f4c430; }
+
+.slider { position:relative; height:80vh; overflow:hidden; }
+.slides .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition: opacity 1s; }
+.slides .slide.active { opacity:1; }
+.slider-overlay { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; background:rgba(0,0,0,0.4); text-align:center; padding:20px; }
+.slider-overlay h1 { font-size:3rem; margin-bottom:20px; }
+.slider-controls { position:absolute; bottom:20px; right:20px; font-size:2rem; display:flex; gap:10px; }
+.slider-controls span { cursor:pointer; user-select:none; }
+
+.promos { padding:60px 20px; text-align:center; background:#201f1f; }
+.promos h2 { font-size:2.5rem; color:#f4c430; margin-bottom:40px; }
+.promo-items { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.promo-item { background:#222; border-radius:10px; overflow:hidden; width:300px; box-shadow:0 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease-in-out; /* Añadida transición para el efecto */
+}
+.promo-item:hover {
+  transform: scale(1.05); /* Añade un ligero aumento de tamaño al pasar el ratón */
+}
+.promo-item img { width:100%; }
+.promo-item h3 { color:#f4c430; margin:15px; }
+.promo-item p { margin:0 15px 15px; }
+/* Asegura que el enlace dentro de promo-item tenga el ancho correcto y se vea como un botón */
+.promo-item .btn {
+  margin:0 15px 15px;
+  width:calc(100% - 30px);
+  box-sizing: border-box; /* Asegura que padding y border no aumenten el ancho */
+}
+
+.menu { padding:60px 20px; background:#111; text-align:center; }
+.menu {position: relative;padding: 60px 20px;text-align: center;overflow: hidden;background: #000;}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.menu-content {
+  position: relative;
+  z-index: 2;
+}
+
+.menu h2 {
+  font-size: 2.5rem;
+  color: #f4c430;
+  margin-bottom: 30px;
+}
+
+.menu .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.menu h2 { font-size:2.2rem; color:#f4c430; margin-bottom:20px; }
+.menu .items { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+
+/* INICIO DE LAS CORRECCIONES PARA LOS CUADROS DE "OTRAS OPCIONES" */
+.menu .items > a { /* Este selector apunta al ENLACE que contiene cada cuadro */
+    display: block; /* Hace que el enlace se comporte como un bloque completo */
+    text-decoration: none; /* Asegura que no tenga el subrayado de enlace */
+    color: inherit; /* Hereda el color del texto del body */
+    width: 200px; /* Le damos el mismo ancho que el .item para que ocupe todo el espacio */
+    height: auto; /* Ajuste automático de la altura */
+}
+
+.menu .items > a .item { /* Este selector apunta al DIV.ITEM dentro del ENLACE */
+    background:#222;
+    border-radius:10px;
+    width:100%; /* Asegura que el div.item ocupe el 100% del ancho del enlace padre */
+    padding:10px;
+    box-shadow:0 1px 5px rgba(0,0,0,0.5);
+    transition:transform .2s ease-in-out; /* Añadida transición para el efecto */
+    /* Estas propiedades son importantes para el diseño interno del cuadro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Permite que el div.item ocupe toda la altura del enlace si es necesario */
+}
+
+.menu .items > a:hover .item { /* Efecto hover aplicado al div.item cuando se pasa el mouse sobre el ENLACE padre */
+  transform:scale(1.05);
+}
+
+/* Fin de las correcciones para los cuadros */
+
+.menu .item img { width:100%; border-radius:8px; }
+.menu .item h3 { margin:10px 0 5px; color:#f4c430; }
+.menu .item span { color:#f4c430; }
+
+.juego { padding:60px 20px; text-align:center; background:#1a1a1a; }
+.juego h2 { color:#f4c430; font-size:2.2rem; }
+.cajas { display:flex; justify-content:center; gap:30px; margin:30px 0; }
+.caja { width:80px; height:80px; background:#d23400; border-radius:10px; cursor:pointer; display:flex; justify-content:center; align-items:center; font-size:2rem; }
+.resultado { font-size:1.2rem; margin-top:20px; color:#f4c430; min-height:1.2em; }
+.juego .btn.primary { margin-top:20px; }
+
+.terminos { padding:40px 20px; background:#121212; color:#ccc; text-align:center; }
+
+footer {
+  background: #201f1f;
+  color: #ccc;
+  padding: 40px 20px;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 100px;
+}
+
+.footer-social h4,
+.footer-payment h4 {
+  color: #f4c430;
+  margin-bottom: 10px;
+}
+
+.social-icons,
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-icons img,
+.payment-icons img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(1.2);
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover,
+.payment-icons img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+.terminos-text {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-info {
+  max-width: 300px;
+  color: #ccc;
+}
+
+.footer-info h4 {
+  color: #f4c430;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+#fecha-actual {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #000;
+    padding: 10px 0;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .slider-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .promos h2,
+  .menu h2,
+  .juego h2 {
+    font-size: 1.8rem;
+  }
+
+  .promo-items,
+  .menu .items,
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo-item,
+  .menu .item {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .footer-logo img {
+    width: 80px;
+  }
+
+  .social-icons img,
+  .payment-icons img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .footer-grid {
+    gap: 20px;
+  }
+
+  .slider {
+    height: 60vh;
+  }
+
+  .bg-video {
+    object-position: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-overlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn.primary,
+  .btn.secondary {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .menu .item {
+    padding: 8px;
+  }
+}

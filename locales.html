@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Don Burger - Locales</title>
+  <link rel="stylesheet" href="locales.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+<body>
+
+  <!-- Fondo con partículas -->
+  <div id="particles-js"></div>
+
+  <header>
+    <div class="logo">
+      <img class="logoheader" src="img_locales/logo.png" alt="Don Burger Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu.html">Promociones</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="#">Locales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Locales y gráfico -->
+  <section class="locales-y-grafico">
+    <div class="locales-container">
+
+      <!-- 7 locales -->
+      <div class="local">
+        <img src="img_locales/1.jpg" alt="Sucursal Lima">
+        <h2>Lima Centro</h2>
+        <p>📍Jirón de la Unión 839 – 841, Lima</p>
+        <p>🕒 10:00 AM - 10:00 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/sFNTr3DHx5cSogtU6')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/2.jpg" alt="Sucursal Miraflores">
+        <h2>Miraflores</h2>
+        <p>📍Av. Garcilaso de la Vega, Lima</p>
+        <p>🕒 11:00 AM - 11:00 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/tR1oY14S8ZFtd1Eh7')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/3.jpg" alt="Sucursal San Isidro">
+        <h2>San Isidro</h2>
+        <p>📍Av. Arequipa 221, Lima 15046</p>
+        <p>🕒 12:00 PM - 9:00 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/vqF7wJL27cNkwVVu6')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/4.jpg" alt="Sucursal Barranco">
+        <h2>Jesús María</h2>
+        <p>📍Plaza Vea, Av. Húsares de Junín</p>
+        <p>🕒 1:00 PM - 11:30 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/ew9gcrFGFBM9gFvU6')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/5.jpg" alt="Sucursal Surco">
+        <h2>Jesús María</h2>
+        <p>📍Real Plaza, Av. Salaverry</p>
+        <p>🕒 9:00 AM - 10:00 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/AfViZvswXsSjEprSA')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/6.jpg" alt="Sucursal Pueblo Libre">
+        <h2>Pueblo Libre</h2>
+        <p>📍Av Antonio José de Sucre 499</p>
+        <p>🕒 10:30 AM - 9:30 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/pFHXJHW7zdehSAhq9')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <div class="local">
+        <img src="img_locales/7.jpg" alt="Sucursal San Isidro">
+        <h2>San Isidro</h2>
+        <p>📍Av. Javier Prado Este 420</p>
+        <p>🕒 10:00 AM - 8:00 PM</p>
+        <button onclick="verMapa('https://maps.app.goo.gl/UuLAJhd7NS8zJ5KKA')">🗺️ Ver en Google Maps</button>
+      </div>
+
+      <!-- Gráfico -->
+      <div class="local grafico-card">
+        <h2>Locales Más Vendidos</h2>
+        <canvas id="graficoLocales" width="300" height="250"></canvas>
+      </div>
+
+     <!-- Clientes Frecuentes -->
+<div class="local clientes-frecuentes">
+    <h2 style="text-align: center;">Clientes Frecuentes</h2>
+    <div class="galeria-clientes">
+      <div class="cliente">
+        <div class="burbuja">
+          <img src="img_locales/cliente1.jpg" alt="Cliente 1">
+        </div>
+        <h5>Manolo</h5>
+        <p>“¡Las mejores papas!”</p>
+      </div>
+      <div class="cliente">
+        <div class="burbuja">
+          <img src="img_locales/cliente2.jpg" alt="Cliente 2">
+        </div>
+        <h5>Daniela</h5>
+        <p>“Amo sus combos.”</p>
+      </div>
+      <div class="cliente">
+        <div class="burbuja">
+          <img src="img_locales/cliente3.jpg" alt="Cliente 3">
+        </div>
+        <h5>Domingo</h5>
+        <p>“Siempre regreso.”</p>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </section>
+
+  <!-- Equipo -->
+  <section class="equipo-container">
+    <h2>Conoce al Equipo</h2>
+    <div class="chefs">
+      <div class="chef">
+        <img src="img_locales/chef1.jpg" alt="Chef">
+        <h4>Chef Luis - Lima Centro</h4>
+        <p>"La pasión está en cada hamburguesa."</p>
+      </div>
+      <div class="chef">
+        <img src="img_locales/chef2.jpg" alt="Chef">
+        <h4>Chef Mariana - San Isidro</h4>
+        <p>"Los mejores ingredientes para ti."</p>
+      </div>
+      <div class="chef">
+        <img src="img_locales/chef3.jpg" alt="Chef">
+        <h4>Chef Carlos - Pueblo Libre</h4>
+        <p>"Sabor que no se olvida."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section class="eventos-container">
+    <h2>Eventos e Inauguraciones Cercanas</h2>
+    <div class="eventos">
+      <div class="evento">
+        <img src="img_locales/evento1.jpg" alt="Evento">
+        <h4>Jesús María</h4>
+        <p>📅 06 de Julio - 6:00 PM</p>
+      </div>
+      <div class="evento">
+        <img src="img_locales/evento2.jpg" alt="Evento">
+        <h4>Pueblo Libre</h4>
+        <p>📅 13 de Julio - 7:30 PM</p>
+      </div>
+      <div class="evento">
+        <img src="img_locales/evento3.jpg" alt="Evento">
+        <h4>Miraflores</h4>
+        <p>📅 20 de Julio - 5:00 PM</p>
+      </div>
+    </div>
+
+    <div class="calendario">
+      <table>
+        <tr>
+          <th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th>
+        </tr>
+        <tr>
+          <td></td><td>1</td><td>2</td><td>3</td><td>4</td><td class="highlight">5</td><td>6</td>
+        </tr>
+        <tr>
+          <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td class="highlight">13</td>
+        </tr>
+        <tr>
+          <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Sugerencias -->
+  <section class="sugerencia-container">
+    <h2>¿Cuál es tu mejor local?</h2>
+    <form>
+      <select>
+        <option disabled selected>Selecciona un local</option>
+        <option>Lima Centro</option>
+        <option>San Isidro</option>
+        <option>Pueblo Libre</option>
+      </select>
+
+      <div class="estrellas">
+        <span class="estrella">★</span>
+        <span class="estrella">★</span>
+        <span class="estrella">★</span>
+        <span class="estrella">★</span>
+        <span class="estrella">★</span>
+      </div>
+
+      <textarea placeholder="¿Qué te gustó de este local?"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Don Burger. Todos los derechos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/51987654321" target="_blank" class="whatsapp-btn" title="Chatea con nosotros">💬</a>
+  <a class="subir-btn" title="Volver arriba">⬆️</a>
+
+  <script src="locales.js"></script>
+</body>
+</html>

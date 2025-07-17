@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DON BURGER</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo"><img class="logoheader" src="images/logo.png" alt=""></div>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="#slider">Inicio</a></li>
+        <li><a href="menu.html">Promociones</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="registro.html">Reguistro</a></li>
+        <li><a href="locales.html">Locales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="slider" class="slider">
+    <div class="slides">
+      <div class="slide active" style="background-image: url('images/slider1.jpg');"></div>
+      <div class="slide" style="background-image: url('images/slider2.jpg');"></div>
+      <div class="slide" style="background-image: url('images/slider3.jpg');"></div>
+    </div>
+    <div class="slider-overlay">
+      <h1>¡Sabor Premium en Cada Mordisco!</h1>
+      <button class="btn primary" onclick="scrollToSection('promos')">Ver Promos</button>
+    </div>
+    <div class="slider-controls">
+      <span class="prev">‹</span>
+      <span class="next">›</span>
+    </div>
+  </section>
+
+  <section id="promos" class="promos">
+    <h2>Promociones Especiales</h2>
+    <div class="promo-items">
+      <div class="promo-item">
+        <img src="images/p1.jpg" alt="Clásica + Papas"/>
+        <h3>Combo Clásica</h3>
+        <p>Hamburguesa + papas y bebida <strong>S/18</strong></p>
+        <a href="menu.html" class="btn secondary">Ordenar Ahora</a>
+      </div>
+      <div class="promo-item">
+        <img src="images/p2.jpg" alt="BBQ Deluxe"/>
+        <h3>BBQ Deluxe</h3>
+        <p>Con tocino, queso y cebolla caramelizada <strong>S/22</strong></p>
+        <a href="menu.html" class="btn secondary">Ordenar Ahora</a>
+      </div>
+      <div class="promo-item">
+        <img src="images/p3.jpg" alt="Veggie Lovers"/>
+        <h3>Veggie Lovers</h3>
+        <p>Plato veggie premium + papas <strong>S/20</strong></p>
+        <a href="menu.html" class="btn secondary">Ordenar Ahora</a>
+      </div>
+  </section>
+
+  <section id="menu" class="menu">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/vid2.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+  <div class="menu-overlay"></div>
+  <div class="menu-content">
+    <h2>Otras Opciones</h2>
+    <div class="items">
+      <a href="menu.html#seccion-cocteles">
+        <div class="item"><img src="images/tagos.jpg" alt=""><h3>Cócteles</h3></div>
+      </a>
+      <a href="menu.html#seccion-postres">
+        <div class="item"><img src="images/postre.jpg" alt=""><h3>Postres</h3></div>
+      </a>
+      <a href="menu.html#seccion-alitas">
+        <div class="item"><img src="images/alitas.jpg" alt=""><h3>Alistas</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-info">
+  <h4>Sobre DON BURGER</h4>
+  <p>
+    Somos una cadena de hamburguesas peruana dedicada a ofrecer experiencias
+    sabrosas, rápidas y de calidad. ¡Descubre nuestros combos irresistibles!
+  </p>
+</div>
+
+      
+      <div class="footer-logo">
+        <img src="images/logo-footer.png" alt="Don Burger Logo" />
+      </div>
+  
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a target="_blank" href="https://www.facebook.com/BurgerKingPeru?rdid=NNVCDONEZ1HWXfTD&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HibF5jGwQ%2F#"><img src="images/facebook.png" alt="Facebook" /></a>
+          <a target="_blank" href="https://www.instagram.com/accounts/login/?next=%2Fburgerking_peru%2F&source=omni_redirect"><img src="images/instagram.png" alt="Instagram" /></a>
+          <a target="_blank" href="https://www.tiktok.com/@burgerking_peru?_t=ZS-8xupUkfwh5c&_r=1"><img src="images/tik-tok.png" alt="TikTok" /></a>
+        </div>
+      </div>
+  
+      <div class="footer-payment">
+        <h4>Métodos de Pago</h4>
+        <div class="payment-icons">
+          <img src="images/visa.png" alt="Visa" />
+          <img src="images/mastercad.png" alt="MasterCard" />
+          <img src="images/yape.png" alt="Yape" />
+          <img src="images/plin.png" alt="Plin" />
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p id="fecha-actual"></p>
+
+      <p class="terminos-text">
+        Promoción válida solo para clientes mayores de 18 años. Descuento no acumulable y un juego por día.
+      </p>
+      <p>&copy; 2025 DON BURGER. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

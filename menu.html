@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Don Burger</title>
+    <link rel="stylesheet" href="main.css"> <link rel="stylesheet" href="menu.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="img_menu/logo-don-burger.png" alt="Logo Don Burger">
+            <span>DON BURGER</span>
+        </div>
+        <nav class="navbar__nav">
+            <ul class="navbar__list">
+                <li class="navbar__item"><a href="index.html" class="navbar__link">Inicio</a></li>
+                <li class="navbar__item"><a href="menu.html" class="navbar__link">Promociones</a></li>
+                <li class="navbar__item"><a href="menu.html" class="navbar__link">Menú</a></li>
+                <li class="navbar__item"><a href="locales.html" class="navbar__link">Locales</a></li>
+                <li class="navbar__item"><a href="registro.html" class="navbar__link">Registro</a></li>
+            </ul>
+        </nav>
+        <div class="navbar__info">
+            <div id="currentDateTime" class="navbar__datetime"></div>
+            </div>
+    </header>
+
+    <main class="menu-container">
+        <section class="menu-section">
+            <h2 class="section-title">Promociones Especiales</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Combo Clásica" data-price="18.00" data-image="images/promo-combo-clasica.jpg">
+                    <img src="img_menu/promo-combo-clasica.jpg" alt="Combo Clásica">
+                    <div class="card-content">
+                        <h3 class="card-title">Combo Clásica</h3>
+                        <p class="card-description">Hamburguesa + papas y bebida</p>
+                        <p class="card-price">S/18</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="BBQ Deluxe" data-price="22.00" data-image="images/promo-bbq-deluxe.jpg">
+                    <img src="img_menu/promo-bbq-deluxe.jpg" alt="BBQ Deluxe">
+                    <div class="card-content">
+                        <h3 class="card-title">BBQ Deluxe</h3>
+                        <p class="card-description">Con tocino, queso y cebolla caramelizada</p>
+                        <p class="card-price">S/22</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Veggie Lovers" data-price="20.00" data-image="images/promo-veggie-lovers.jpg">
+                    <img src="img_menu/promo-veggie-lovers.jpg" alt="Veggie Lovers">
+                    <div class="card-content">
+                        <h3 class="card-title">Veggie Lovers</h3>
+                        <p class="card-description">Plato veggie premium + papas</p>
+                        <p class="card-price">S/20</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">Clásicos</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Burger Simple" data-price="15.00" data-image="images/classic-burger-simple.jpg">
+                    <img src="img_menu/classic-burger-simple.jpg" alt="Classic Burger Simple">
+                    <div class="card-content">
+                        <h3 class="card-title">Classic Burger Simple</h3>
+                        <p class="card-description">La hamburguesa tradicional de la casa</p>
+                        <p class="card-price">S/15</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Doble Queso" data-price="18.00" data-image="images/classic-doble-queso.jpg">
+                    <img src="img_menu/classic-doble-queso.jpg" alt="Doble Queso">
+                    <div class="card-content">
+                        <h3 class="card-title">Doble Queso</h3>
+                        <p class="card-description">Con doble carne y doble queso derretido</p>
+                        <p class="card-price">S/18</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Chicken Burger" data-price="16.00" data-image="images/classic-chicken-burger.jpg">
+                    <img src="img_menu/classic-chicken-burger.jpg" alt="Classic Chicken Burger">
+                    <div class="card-content">
+                        <h3 class="card-title">Chicken Burger</h3>
+                        <p class="card-description">Hamburguesa de pollo crispy</p>
+                        <p class="card-price">S/16</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title" id="seccion-cocteles">Cócteles</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Mojito" data-price="20.00" data-image="images/cocktail-mojito.jpg">
+                    <img src="img_menu/cocktail-mojito.jpg" alt="Mojito">
+                    <div class="card-content">
+                        <h3 class="card-title">Mojito</h3>
+                        <p class="card-description">Refrescante con hierbabuena y limón</p>
+                        <p class="card-price">S/20</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Pisco Sour" data-price="22.00" data-image="images/cocktail-pisco-sour.jpg">
+                    <img src="img_menu/cocktail-pisco-sour.jpg" alt="Pisco Sour">
+                    <div class="card-content">
+                        <h3 class="card-title">Pisco Sour</h3>
+                        <p class="card-description">El clásico peruano con pisco y limón</p>
+                        <p class="card-price">S/22</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Margarita" data-price="19.00" data-image="images/cocktail-margarita.jpg">
+                    <img src="img_menu/cocktail-margarita.jpg" alt="Margarita">
+                    <div class="card-content">
+                        <h3 class="card-title">Margarita</h3>
+                        <p class="card-description">Con tequila, triple sec y limón</p>
+                        <p class="card-price">S/19</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title" id="seccion-postres">Postres</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Chocolate Cake" data-price="12.00" data-image="images/dessert-chocolate-cake.jpg">
+                    <img src="img_menu/dessert-chocolate-cake.jpg" alt="Chocolate Cake">
+                    <div class="card-content">
+                        <h3 class="card-title">Chocolate Cake</h3>
+                        <p class="card-description">Delicioso pastel de chocolate</p>
+                        <p class="card-price">S/12</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Strawberry Cheesecake" data-price="14.00" data-image="images/dessert-strawberry-cheesecake.jpg">
+                    <img src="img_menu/dessert-strawberry-cheesecake.jpg" alt="Strawberry Cheesecake">
+                    <div class="card-content">
+                        <h3 class="card-title">Strawberry Cheesecake</h3>
+                        <p class="card-description">Cheesecake cremoso con fresas</p>
+                        <p class="card-price">S/14</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Ice Cream" data-price="9.00" data-image="images/dessert-ice-cream.jpg">
+                    <img src="img_menu/dessert-ice-cream.jpg" alt="Ice Cream">
+                    <div class="card-content">
+                        <h3 class="card-title">Ice Cream</h3>
+                        <p class="card-description">Variedad de sabores a elegir</p>
+                        <p class="card-price">S/9</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title" id="seccion-alitas">Alitas</h2>
+            <div class="menu-grid">
+                <div class="menu-card" data-name="Alitas BBQ" data-price="16.00" data-image="images/wings-bbq.jpg">
+                    <img src="img_menu/wings-bbq.jpg" alt="Alitas BBQ">
+                    <div class="card-content">
+                        <h3 class="card-title">Alitas BBQ</h3>
+                        <p class="card-description">Alitas bañadas en salsa BBQ</p>
+                        <p class="card-price">S/16</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Alitas Hot" data-price="17.00" data-image="images/wings-hot.jpg">
+                    <img src="img_menu/wings-hot.jpg" alt="Alitas Hot">
+                    <div class="card-content">
+                        <h3 class="card-title">Alitas Hot</h3>
+                        <p class="card-description">Picantes alitas para los valientes</p>
+                        <p class="card-price">S/17</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="menu-card" data-name="Alitas Garlic Parmesan" data-price="18.00" data-image="images/wings-garlic-parmesan.jpg">
+                    <img src="img_menu/wings-garlic-parmesan.jpg" alt="Alitas Garlic Parmesan">
+                    <div class="card-content">
+                        <h3 class="card-title">Alitas Garlic Parmesan</h3>
+                        <p class="card-description">Con ajo y queso parmesano</p>
+                        <p class="card-price">S/18</p>
+                        <button class="order-button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button class="view-cart-button" id="viewCartButton">
+        <img src="img_menu/icon-cart.png" alt="Ver Carrito">
+        Ver Carrito (<span id="cartItemCount">0</span>)
+    </button>
+
+    <div class="floating-cart" id="floatingCart">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <span id="cartCloseBtn">&times;</span>
+        </div>
+        <ul id="cartItems" class="cart-items">
+            </ul>
+        <div class="cart-summary">
+            <p>Total: S/<span id="cartTotal">0.00</span></p>
+            <button class="checkout-button">Pagar</button>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>

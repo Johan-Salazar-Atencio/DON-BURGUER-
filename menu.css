@@ -1,0 +1,454 @@
+/* Estilos Específicos para la Página del Menú */
+/* Nota: Estilos de body y navbar se asumen en main.css */
+
+/* Contenido Principal del Menú */
+.menu-container {
+    padding-top: 80px; /* Espacio para la barra de navegación fija */
+    padding-bottom: 40px; /* Deja espacio al final para el botón de carrito flotante */
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box; /* Incluir padding en el cálculo de la altura */
+    min-height: calc(100vh - 80px); /* Asegura que el contenido ocupe la altura restante de la vista */
+}
+
+.section-title {
+    color: #ffd700;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.menu-card {
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para el pseudo-elemento del borde */
+}
+
+/* Efecto de borde difuminado al pasar el mouse */
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 3px solid transparent; /* Borde inicial transparente */
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0.7); /* Sombra inicial transparente */
+    pointer-events: none; /* Asegura que no interfiera con el click en la tarjeta */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    z-index: 1; /* Asegura que esté sobre el contenido si es necesario */
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Efecto de borde difuminado al pasar el mouse - al hover de la tarjeta */
+.menu-card:hover::before {
+    border-color: rgba(255, 215, 0, 0.7); /* Borde dorado al hover */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), inset 0 0 10px rgba(255, 215, 0, 0.5); /* Sombra difuminada */
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Asegura que el contenido esté sobre el pseudo-elemento */
+    z-index: 2;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    transition: color 0.3s ease; /* Transición para el cambio de color */
+}
+
+/* Efecto de cambio de color al pasar el mouse sobre el título */
+.menu-card:hover .card-title {
+    color: #ffd700; /* Color dorado al pasar el mouse */
+}
+
+.card-description {
+    color: #ccc;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-price {
+    color: #ff4d4d;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.order-button:hover {
+    background-color: #e60000;
+}
+
+/* NUEVO: Botón flotante "Ver Carrito" (el de la parte inferior) */
+.view-cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4d; /* Rojo */
+    color: #fff;
+    border: none;
+    border-radius: 30px; /* Bordes más redondeados para forma de píldora */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex; /* Para alinear el icono y el texto */
+    align-items: center;
+    gap: 8px; /* Espacio entre el icono y el texto */
+    z-index: 1000; /* Asegurar que esté sobre otros elementos */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Inicia oculto si no hay items, se muestra con JS */
+    display: none; 
+}
+
+.view-cart-button:hover {
+    background-color: #e60000; /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-3px); /* Pequeño levantamiento */
+}
+
+.view-cart-button img {
+    width: 24px; /* Tamaño del icono del carrito dentro del botón */
+    height: 24px;
+    filter: invert(100%); /* Si el icono es oscuro, lo hace blanco */
+}
+
+/* Carrito Flotante (La burbuja que se abre al hacer clic en "Ver Carrito") */
+.floating-cart {
+    position: fixed;
+    right: 20px;
+    bottom: 80px; /* Posicionado por encima del botón "Ver Carrito" */
+    width: 300px;
+    max-height: 80vh;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Estado inicial: oculto y sin opacidad */
+    visibility: hidden; 
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease-in-out;
+    resize: both; /* Permite redimensionar */
+    overflow: auto; /* Scrollbar cuando el contenido excede el max-height */
+}
+
+.floating-cart.active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.floating-cart.recepting {
+    animation: cartShake 0.4s ease-in-out;
+}
+
+@keyframes cartShake {
+    0% { transform: translateX(0) scale(1); }
+    25% { transform: translateX(-5px) scale(1.02); }
+    50% { transform: translateX(5px) scale(1.02); }
+    75% { transform: translateX(-5px) scale(1.02); }
+    100% { transform: translateX(0) scale(1); }
+}
+
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+}
+
+.cart-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.cart-header span {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto; /* Permite scroll solo en los ítems */
+}
+
+.cart-items li {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 10px 0;
+    border-bottom: 1px dashed #555;
+    color: #ccc;
+}
+
+.cart-items li:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 60px; /* Tamaño de la imagen en el carrito */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: 1px solid #555; /* Borde sutil para la imagen */
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-info span {
+    display: block;
+}
+
+.item-info .item-name {
+    font-weight: bold;
+    color: #fff;
+}
+
+.item-info .item-quantity {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #ffd700;
+    white-space: nowrap; /* Evita que el precio se rompa */
+    margin-left: 10px; /* Espacio a la izquierda del precio */
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    padding: 5px; /* Añadir padding para hacer más fácil el click */
+}
+
+.remove-item:hover {
+    color: #e60000;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #aaa;
+    padding: 20px;
+    font-style: italic;
+}
+
+
+.cart-summary {
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-top: 1px solid #444;
+    text-align: right;
+}
+
+.cart-summary p {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.cart-summary span {
+    color: #ffd700;
+}
+
+.checkout-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #e60000;
+}
+
+/* Animación para el botón del carrito (el nuevo) */
+.view-cart-button.recepting-nav-cart {
+    animation: navCartPop 0.4s ease-out;
+}
+@keyframes navCartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); } /* Más sutil */
+    100% { transform: scale(1); }
+}
+
+
+/* Media Queries para Responsividad de Menú */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2em;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .floating-cart {
+        width: 280px;
+        right: 15px;
+        bottom: 75px; /* Ajuste para el botón flotante */
+    }
+
+    .view-cart-button {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        padding-top: 20px;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .menu-card img {
+        height: 180px;
+    }
+
+    .card-title {
+        font-size: 1.3em;
+    }
+
+    .card-price {
+        font-size: 1.1em;
+    }
+
+    .order-button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .floating-cart {
+        width: 90%;
+        max-width: 350px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        right: auto;
+        bottom: 75px; /* Ajuste para el botón flotante */
+    }
+
+    .floating-cart.active {
+        transform: translateX(-50%) scale(1);
+    }
+    
+    .floating-cart.recepting {
+        animation: cartShakeMobile 0.4s ease-in-out;
+    }
+
+    @keyframes cartShakeMobile {
+        0% { transform: translateX(-50%) scale(1); }
+        25% { transform: translateX(-50%) translateX(-5px) scale(1); }
+        50% { transform: translateX(-50%) translateX(5px) scale(1); }
+        75% { transform: translateX(-50%) translateX(-5px) scale(1); }
+        100% { transform: translateX(-50%) translateX(0) scale(1); }
+    }
+
+    .view-cart-button {
+        width: calc(100% - 40px); /* Ocupa casi todo el ancho */
+        max-width: 300px; /* Límite para el botón */
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        bottom: 15px;
+    }
+
+    .view-cart-button.recepting-nav-cart {
+        animation: navCartPopMobile 0.4s ease-out;
+    }
+    @keyframes navCartPopMobile {
+        0% { transform: translateX(-50%) scale(1); }
+        50% { transform: translateX(-50%) scale(1.05); }
+        100% { transform: translateX(-50%) scale(1); }
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+}

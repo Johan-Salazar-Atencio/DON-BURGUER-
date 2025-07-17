@@ -1,0 +1,386 @@
+/* Estilos Generales para la Página de Registro */
+body {
+    background-color: #2c2c2c; /* Fondo oscuro similar a tus ejemplos */
+    color: #fff;
+    font-family: 'Arial', sans-serif; /* Ajusta la fuente si es necesario */
+    margin: 0;
+    padding: 0;
+    /* QUITAMOS overflow: hidden; de aquí para permitir la barra de desplazamiento */
+    /* overflow: hidden; */
+}
+
+/* Estilo de la barra de navegación (asumiendo que main.css maneja la mayor parte) */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo ligeramente transparente */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo img {
+    height: 40px; /* Ajusta el tamaño del logo */
+    margin-right: 10px;
+}
+
+.navbar__logo span {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar__nav .navbar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar__nav .navbar__item {
+    margin-left: 30px;
+}
+
+.navbar__nav .navbar__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar__nav .navbar__link:hover {
+    color: #ffd700; /* Color dorado para hover, ajusta si es necesario */
+}
+
+
+/* Contenedor del Formulario de Registro */
+.registro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh;  Cambiamos esto para que pueda crecer */
+    min-height: calc(100vh - 80px); /* Ajusta a la altura de la vista menos la navbar */
+    padding-top: 80px; /* Espacio para la barra de navegación fija */
+    padding-bottom: 40px; /* Añade un poco de espacio al final si el contenido es muy largo */
+    position: relative; /* Para posicionar los círculos */
+    z-index: 1; /* Asegura que los círculos estén detrás del formulario */
+}
+
+.registro-form-wrapper {
+    background-color: rgba(36, 36, 36, 0.9); /* Fondo oscuro ligeramente más claro para el formulario */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    z-index: 2; /* Asegura que el formulario esté encima de los círculos */
+}
+
+.registro-title {
+    color: #ff4d4d; /* Color rojo, similar a tu ejemplo */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.registro-form .form-group {
+    margin-bottom: 20px;
+}
+
+.registro-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+    width: calc(100% - 20px); /* Considera el padding */
+    padding: 12px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+.registro-form input::placeholder {
+    color: #888;
+}
+
+.registro-form input:focus {
+    outline: none;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+}
+
+.form-group--checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group--checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px; /* Tamaño personalizado para el checkbox */
+    height: 18px;
+    accent-color: #ff4d4d; /* Color del checkbox en sí */
+}
+
+.form-group--checkbox label {
+    margin-bottom: 0; /* Anula el margen predeterminado de la etiqueta */
+    font-weight: normal;
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+.registro-form .form-link {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registro-form .form-link:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.85em;
+    margin-top: 5px;
+    min-height: 18px; /* Para evitar que el diseño se mueva cuando aparece el error */
+}
+
+.registro-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4d4d; /* Botón rojo */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.registro-button:hover {
+    background-color: #e60000;
+}
+
+/* Estilo de Círculos en Movimiento */
+.circle {
+    position: fixed; /* CAMBIO CLAVE: Cambiar a fixed para que se muevan con la ventana */
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--circle-color-light) 0%, var(--circle-color-dark) 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.1s ease-out, opacity 0.5s ease-out; /* Para el efecto de estallido */
+    z-index: 0; /* Asegura que los círculos estén detrás del formulario */
+}
+
+/* Animación de estallido (se agregará mediante clase JS) */
+.circle--burst {
+    transform: scale(2) rotate(30deg); /* Crece y rota */
+    opacity: 0;
+}
+
+/* Keyframes para movimiento continuo (aleatorio por JS) */
+@keyframes moveCircle {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(var(--dx1), var(--dy1)); }
+    50% { transform: translate(var(--dx2), var(--dy2)); }
+    75% { transform: translate(var(--dx3), var(--dy3)); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Modal de Registro Exitoso */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté encima de todo */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #3a3a3a;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-title {
+    color: #ffd700; /* Dorado para el título */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal-message {
+    color: #ccc;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.modal-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #e60000;
+}
+
+/* Estilos para el Confeti */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Permite hacer clic a través del contenedor */
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--confetti-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: fadeOut 1s forwards, fallConfetti var(--duration) linear forwards;
+}
+
+@keyframes fallConfetti {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--endX), var(--endY)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .registro-form-wrapper {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .registro-title {
+        font-size: 1.8em;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar__list {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .navbar__item {
+        margin-left: 0;
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+
+    .modal-content {
+        padding: 30px;
+    }
+
+    .modal-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .registro-form-wrapper {
+        padding: 20px;
+    }
+
+    .registro-title {
+        font-size: 1.5em;
+    }
+
+    .registro-form input {
+        padding: 10px;
+    }
+
+    .registro-button {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-title {
+        font-size: 1.8em;
+    }
+
+    .modal-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
